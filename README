@@ -1,5 +1,14 @@
 The short rvm (ruby version manager) install script.
 
+How install?
+
+- git clone git://github.com/davidpgero/rvm_install_script.git
+- cd rvm_install_script
+- chmod +x rvm_install_script.sh
+- ./rvm_install_script.sh
+
+After the last steps you go to coffee. Hopefully after the install you get the message about your ruby version is 1.9.2 and install the Ruby Version Manager.
+
 How it's works?
 
 - install rvm and add your .bashrc
