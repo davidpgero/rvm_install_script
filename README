@@ -1,1 +1,9 @@
 The short rvm (ruby version manager) install script.
+
+How it's works?
+
+- install rvm and add your .bashrc
+- install package (readline, iconv, zlib, openssl, autoconf)
+- install ruby 1.9.2 with above package
+- settings the ruby 1.9.2 the default
+- testing the ruby version. If you get the 1.9.2 - It's work!
