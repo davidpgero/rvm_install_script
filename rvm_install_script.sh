@@ -17,4 +17,15 @@ rvm install 1.9.2 --with-readline-dir=$rvm_path/usr --with-iconv-dir=$rvm_path/u
 rvm use 1.9.2 --default; \
 
 # checking the ruby version! - If you see the ruby version 1.9.2, you OK!
-ruby -v 
+ruby -v;
+
+# Create and use Gemset
+rvm gemset create rails309;
+rvm gemset use rails309 --default;
+
+# install Rails 3.0.9
+gem install rails -v=3.0.9;
+
+# Check Rails version
+gem list;
+rails -v;
