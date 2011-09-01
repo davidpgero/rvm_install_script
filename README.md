@@ -40,7 +40,7 @@ Optional: If you are using elder Ruby you might need to install Rubygems too (no
 ##### Check if you have Git already:
     $ git -v
 
-If Git isn't install
+If Git isn't installed yet:
     $ sudo apt-get install git-core curl
     $ sudo aptitude build-dep git-core
 
@@ -65,77 +65,58 @@ Restart your terminal or type and reload RVM compiler:
     $ rvm get
     $ rvm reload
 
-# If you already have Ruby and you had problems and want to completly reinstall it
-$ rvm remove ruby
+*Note: If you already have Ruby and you had problems and want to completly reinstall it*
+    $ rvm remove ruby
 
-Step3:
+### Step3. Install all RVM packages:
 
-# 3. Install all RVM packages:
+    $ rvm package install readline
+    $ rvm package install iconv
+    $ rvm package install zlib
+    $ rvm package install openssl
+    $ rvm package install autoconf
 
-$ rvm package install readline
-$ rvm package install iconv
-$ rvm package install zlib
-$ rvm package install openssl
+### Step 5: Install Ruby version 1.9.2 with RVM.
+    $ rvm install 1.9.2 --with-readline-dir=$rvm_path/usr --with-iconv-dir=$rvm_path/usr --with-zlib-dir=$rvm_path/usr --with-openssl-dir=/usr/local 
 
-Step 5:
-
-# Step 5:
-
-# Install Ruby version 1.9.2 with RVM.
-$ rvm install 1.9.2 --with-readline-dir=$rvm_path/usr --with-iconv-dir=$rvm_path/usr --with-zlib-dir=$rvm_path/usr --with-openssl-dir=/usr/local 
-
-# You may wanna use specific solution if you have problems with Rake "stack too deep"
+Note: if you had problems with Rake "stack too deep" this may be a solution:
 $ rvm install 1.9.2-p0 --with-readline-dir=$rvm_path/usr --with-iconv-dir=$rvm_path/usr --with-zlib-dir=$rvm_path/usr --with-openssl-dir=/usr/local 
 
-# Set the default Ruby to use.
-$ rvm use 1.9.2
+Set the default Ruby to use.
+    $ rvm use 1.9.2
 
-# Check if works:
-$ ruby -v
-$ rvm list
+Check if works:
+    $ ruby -v
+    $ rvm list
 
-# Set the default Ruby interpreter:
-$ rvm use 1.9.2 --default
+Use and set default Ruby interpreter:
+    $ rvm use 1.9.2 --default
 
-# It overrides the system's default Ruby. Also next time you don't need to specify which Ruby version you want.
+*It overrides the system's default Ruby.* 
+Next time you open a terminal you don't need to specify which Ruby version you want because it set as default.
 
-Step 6:
+### Step 6: Create Gemsets 
+**This prevents confusions with gems versions and updates.**
+*Important format: 'rvm' then your Ruby version from 'rvm list' and then your Gemset's name*
+    $ rvm gemset create YourProjectName
+Use this Gemset and set as default:
+    $ rvm gemset use 1.9.2@YourProjectName --default
 
-#Create Gemsets to avoid confusions with gems versions and updates.
-# More info about Gemsets: 
-# http://beginrescueend.com/gemsets/basics/
-
-$ rvm gemset create YourProjectName
-$ rvm 1.9.2@YourProjectName
-# important format: rvm then your Ruby version from rvm list and then your Gemset's name
-'
-
-
-Step 7:
-
-# Step 7: Install Rails and other gems
-
-$ gem install rails
-
-# My gemlist, you don't need it:
-# $ gem install rails haml compass aws-ses aws-s3 authlogic cucumber datamapper json mongo mongoid oauth authlogic-oauth padrino omniauth pdf-reader pg rack rack-cache sinatra sqlite3 thin spork rspec rspec-rails facroty_girl_rails nokogiri annotate_models faker will_paginate 
-
-# For autotest follow these instruciotns:
-# http://automate-everything.com/2009/08/gnome-and-autospec-notifications/
-$ sudo apt-get install libnotify-bin
-
-$ gem install autotest -v 4.4.6
-$ gem install autotest-rails-pure -v 4.1.2
-$ gem install autotest-fsevent -v 0.2.4
-$ gem install autotest-growl -v 0.2.9
-$ gem install autotest-notification ZenTest redgreen autotest-standalone
+More info about Gemsets: 
+http://beginrescueend.com/gemsets/basics/
 
 
-# Important: check if everything works fine
-$ rvm -v
-$ rvm list
-$ ruby -v
-$ rails -v
-$ gem list
+###Step 7: Install Rails
+    $ gem install rails
 
-# or choose whatever you need from http://ruby-toolbox.com/
+######Important: check if everything works fine
+    $ rvm -v
+    $ rvm list
+    $ ruby -v
+    $ rails -v
+    $ gem list
+
+Welcome on Rails!:) You may want to visit the famous 15minutes blog on RailsGuides.
+Finally choose your favorite Gems from http://ruby-toolbox.com/ and from Github.
+
+**Please report if you had any issue with the install script. Thanks.**
