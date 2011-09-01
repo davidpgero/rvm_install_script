@@ -1,4 +1,5 @@
-## The short RVM (Ruby Version Manager) install script for Ubuntu
+## The shortest way to install Rails3 on Ubuntu
+*with RVM (Ruby Version Manager) an Ruby1.9*
 
 ### How install?
 
